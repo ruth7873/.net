@@ -8,9 +8,9 @@
         public DateTime End { get; set; }
         public Event()
         {
-            
+
         }
-        public Event(int id,string title)
+        public Event(int id, string title)
         {
             Id = id;
             Title = title;

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -16,7 +17,7 @@ namespace eventApi_ruthHershler.Controllers
         public IEnumerable<Event> Get()
         {
             return list;
-        }       
+        }
 
         // POST api/<EventController>
         [HttpPost]
@@ -29,7 +30,7 @@ namespace eventApi_ruthHershler.Controllers
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] Event newEvent)
         {
-            Event e=list.Find(e=>e.Id==id);
+            Event e = list.Find(e => e.Id == id);
             Event e1 = new Event(id, newEvent.Title, newEvent.Start, e.End);
             list.Remove(e);
             list.Add(e1);
@@ -39,7 +40,7 @@ namespace eventApi_ruthHershler.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-           var l= list.Find(e=>e.Id==id);
+            var l = list.Find(e => e.Id == id);
             list.Remove(l);
         }
     }
